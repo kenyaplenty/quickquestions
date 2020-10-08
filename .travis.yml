@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode12
+xcode_project: quick-questions.xcodeproj
+xcode_scheme: quick-questions
+xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone X
