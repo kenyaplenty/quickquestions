@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     func selectOption1() {
-        selectedOption = 1
+        selectedOption = selectedOption == 1 ? 0 : 1
     }
     
     @IBAction func option2Tap(_ sender: Any) {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     func selectOption2() {
-        selectedOption = 2
+        selectedOption = selectedOption == 2 ? 0 : 2
     }
     
     @IBAction func option3Tap(_ sender: Any) {
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     func selectOption3() {
-        selectedOption = 3
+        selectedOption = selectedOption == 3 ? 0 : 3
     }
 }
 

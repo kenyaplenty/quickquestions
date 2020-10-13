@@ -9,25 +9,52 @@ import XCTest
 @testable import quick_questions
 
 class quick_questionsTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    /*
+     * Test to see if we're able to tap on an option from view initialization
+     */
+    func testSelectOptionFromBeginning() {
+        let vc = ViewController()
+        
+        //check selection is nothing at intialization
+        XCTAssertEqual(vc.selectedOption, 0)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    /*
+     * Test if we're able to switch between options with each selection
+     */
+    func testSelectionSwitching() {
+        let vc = ViewController()
+        
+        //check selection is nothing at intialization
+        XCTAssertEqual(vc.selectedOption, 0)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
+        
+        vc.selectOption2()
+        XCTAssertEqual(vc.selectedOption, 2)
+        
+        vc.selectOption3()
+        XCTAssertEqual(vc.selectedOption, 3)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    /*
+     * Test if we're able to switch between options with each selection
+     */
+    func testDeselection() {
+        let vc = ViewController()
+        
+        //check selection is nothing at intialization
+        XCTAssertEqual(vc.selectedOption, 0)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 0)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
