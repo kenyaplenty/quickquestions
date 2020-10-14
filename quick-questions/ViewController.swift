@@ -14,9 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var option1Btn: UIButton!
     @IBOutlet weak var option2Btn: UIButton!
     @IBOutlet weak var option3Btn: UIButton!
+    @IBOutlet weak var answerBtn: UIButton!
     
     //MARK: - Variables
+    
     var selectedOption = 0
+    var isProcessingAnswer = false
+    var isCorrectAnswer = false
     
     
     //MARK: - View functions
@@ -25,13 +29,16 @@ class ViewController: UIViewController {
     }
 
 
-    //MARK: - Button actions
+    //MARK: - Selection actions
+    
     @IBAction func option1Tap(_ sender: Any) {
         selectOption1()
     }
     
     func selectOption1() {
-        selectedOption = selectedOption == 1 ? 0 : 1
+        if !isProcessingAnswer {
+            selectedOption = selectedOption == 1 ? 0 : 1
+        }
     }
     
     @IBAction func option2Tap(_ sender: Any) {
@@ -39,7 +46,9 @@ class ViewController: UIViewController {
     }
     
     func selectOption2() {
-        selectedOption = selectedOption == 2 ? 0 : 2
+        if !isProcessingAnswer {
+            selectedOption = selectedOption == 2 ? 0 : 2
+        }
     }
     
     @IBAction func option3Tap(_ sender: Any) {
@@ -47,7 +56,33 @@ class ViewController: UIViewController {
     }
     
     func selectOption3() {
-        selectedOption = selectedOption == 3 ? 0 : 3
+        if !isProcessingAnswer {
+            selectedOption = selectedOption == 3 ? 0 : 3
+        }
+    }
+    
+    //MARK: - Answer actions
+    
+    @IBAction func answerBtnTap(_ sender: Any) {
+        answerTap()
+    }
+    
+    func answerTap() {
+        isProcessingAnswer = true
+    }
+    
+    func answerIsCorrect() {
+        isProcessingAnswer = false
+        isCorrectAnswer = true
+        
+        selectedOption = 0
+    }
+    
+    func answerIsWrong() {
+        isProcessingAnswer = false
+        isCorrectAnswer = false
+        
+        selectedOption = 0
     }
 }
 
