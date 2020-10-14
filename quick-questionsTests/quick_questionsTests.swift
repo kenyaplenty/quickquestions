@@ -43,7 +43,7 @@ class quick_questionsTests: XCTestCase {
     }
     
     /*
-     * Test if we're able to switch between options with each selection
+     * Test if we're able to deselect a selection
      */
     func testDeselection() {
         let vc = ViewController()
@@ -55,6 +55,67 @@ class quick_questionsTests: XCTestCase {
         XCTAssertEqual(vc.selectedOption, 1)
         
         vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 0)
+    }
+    
+    /*
+     * Test if not able to make another selection while processing an answer
+     */
+    func testSelectionDuringAnswerProcessing() {
+        let vc = ViewController()
+        
+        XCTAssertEqual(vc.selectedOption, 0)
+        XCTAssertFalse(vc.isProcessingAnswer)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
+        
+        vc.answerTap()
+        XCTAssertTrue(vc.isProcessingAnswer)
+        
+        vc.selectOption2()
+        XCTAssertEqual(vc.selectedOption, 1)
+    }
+    
+    /*
+     * Test if correct answer resets selection and marks the correct boolean to true
+     */
+    func testCorrectAnswer() {
+        let vc = ViewController()
+        
+        XCTAssertEqual(vc.selectedOption, 0)
+        XCTAssertFalse(vc.isProcessingAnswer)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
+        
+        vc.answerTap()
+        XCTAssertTrue(vc.isProcessingAnswer)
+        
+        vc.answerIsCorrect()
+        XCTAssertFalse(vc.isProcessingAnswer)
+        XCTAssertTrue(vc.isCorrectAnswer)
+        XCTAssertEqual(vc.selectedOption, 0)
+    }
+    
+    /*
+     * Test if wrong answer resets selection and marks the correct boolean to false
+     */
+    func testWrongAnswer() {
+        let vc = ViewController()
+        
+        XCTAssertEqual(vc.selectedOption, 0)
+        XCTAssertFalse(vc.isProcessingAnswer)
+        
+        vc.selectOption1()
+        XCTAssertEqual(vc.selectedOption, 1)
+        
+        vc.answerTap()
+        XCTAssertTrue(vc.isProcessingAnswer)
+        
+        vc.answerIsWrong()
+        XCTAssertFalse(vc.isProcessingAnswer)
+        XCTAssertFalse(vc.isCorrectAnswer)
         XCTAssertEqual(vc.selectedOption, 0)
     }
 }
