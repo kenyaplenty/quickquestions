@@ -48,6 +48,12 @@
                                     <action selector="answerBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LSr-yG-yz8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdI-m1-brp">
+                                <rect key="frame" x="186" y="54" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,6 +62,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3yE-rJ-fsi" secondAttribute="trailing" constant="20" id="72K-wo-EPo"/>
                             <constraint firstItem="3yE-rJ-fsi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7mX-QV-Ibt"/>
                             <constraint firstItem="mhN-G6-XuR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Aq9-69-WDK"/>
+                            <constraint firstItem="bdI-m1-brp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wj7-JE-uat"/>
+                            <constraint firstItem="bdI-m1-brp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aui-Df-dyx"/>
                             <constraint firstItem="mhN-G6-XuR" firstAttribute="top" secondItem="E2M-mE-1GL" secondAttribute="bottom" constant="40" id="dob-7s-Wue"/>
                             <constraint firstItem="NTg-JF-ete" firstAttribute="top" secondItem="mhN-G6-XuR" secondAttribute="bottom" constant="40" id="jss-6P-BpR"/>
                             <constraint firstItem="3yE-rJ-fsi" firstAttribute="top" secondItem="NTg-JF-ete" secondAttribute="bottom" constant="50" id="lec-Qf-cQG"/>
