@@ -3,12 +3,18 @@ osx_image: xcode12
 xcode_project: quick-questions.xcodeproj
 xcode_scheme: quick-questions
 xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
+cache: cocoapods
 
-install:
-  - ./install_swiftlint.sh
+before_install:
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - brew unlink swiftlint
+  - brew uninstall swiftlint
+  - brew install swiftlint
+  - brew update
+  - brew outdated swiftlint || brew upgrade swiftlint
 
-script:
+before_script:
   - swiftlint
-  
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
