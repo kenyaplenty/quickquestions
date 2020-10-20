@@ -6,7 +6,7 @@ xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
 cache: cocoapods
 
 before_install:
-  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods
   - brew unlink swiftlint
   - brew uninstall swiftlint
   - brew install swiftlint
