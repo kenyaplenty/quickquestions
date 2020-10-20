@@ -7,6 +7,7 @@
 
 import XCTest
 
+// swiftlint:disable all
 class quick_questionsUITests: XCTestCase {
 
     override func setUpWithError() throws {
