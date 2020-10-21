@@ -8,6 +8,7 @@
 import XCTest
 @testable import quick_questions
 
+// swiftlint:disable all
 class quick_questionsTests: XCTestCase {
     
     /*

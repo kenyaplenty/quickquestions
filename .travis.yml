@@ -1,7 +1,18 @@
+
+before_install:
+  - gem install cocoapods
+install:
+  - brew update && brew upgrade swiftlint
+  - pod install
 language: swift
 osx_image: xcode12
 xcode_project: quick-questions.xcodeproj
 xcode_scheme: quick-questions
 xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
+script:
+  - swiftlint
+  - xcodebuild test -workspace 'quick-questions.xcworkspace' -scheme 'quick-questions' -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11'
+
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
