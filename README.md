@@ -7,3 +7,4 @@ Project link: https://github.com/karimerobles/quickquestions
 
 Collaboration with flp2111 on an iOS Quiz-style game app using an open trivia database. User incentive will be beating their own high score, thus the game continues until user answers incorrectly. Exploring the idea of different game modes (themed questions, time limit, etc). 
 
+Quiz database: https://opentdb.com/api_config.php
