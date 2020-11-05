@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13936D6E2553D541003F2433 /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13936D6D2553D541003F2433 /* ResultsVC.swift */; };
 		13A44F72255375770089FAFB /* QuizDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */; };
 		13A44F772553AB190089FAFB /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F762553AB190089FAFB /* Quiz.swift */; };
 		13A44F7C2553B8940089FAFB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F7B2553B8940089FAFB /* HomeVC.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		085B50BB407A670B2A39D370 /* Pods-quick-questions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick-questions.debug.xcconfig"; path = "Target Support Files/Pods-quick-questions/Pods-quick-questions.debug.xcconfig"; sourceTree = "<group>"; };
 		0AB3A3A90386CD2AF0F8A5E7 /* Pods_quick_questions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quick_questions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13936D6D2553D541003F2433 /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDatabaseHelper.swift; sourceTree = "<group>"; };
 		13A44F762553AB190089FAFB /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		13A44F7B2553B8940089FAFB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */,
 				13A44F762553AB190089FAFB /* Quiz.swift */,
 				13A44F7B2553B8940089FAFB /* HomeVC.swift */,
+				13936D6D2553D541003F2433 /* ResultsVC.swift */,
 			);
 			path = "quick-questions";
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13936D6E2553D541003F2433 /* ResultsVC.swift in Sources */,
 				CFCEFC2C252EA3F3003ACC9A /* ViewController.swift in Sources */,
 				13A44F772553AB190089FAFB /* Quiz.swift in Sources */,
 				13A44F72255375770089FAFB /* QuizDatabaseHelper.swift in Sources */,

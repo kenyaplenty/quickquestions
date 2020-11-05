@@ -127,19 +127,31 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: isCorrectAnswer ? "Correct!" : "Wrong :(",
                                       message: nil,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: quiz.questionIndex == quiz.questions.count
+        let nextAction = UIAlertAction(title: quiz.questionIndex == quiz.questions.count
                                         ? "Results" : "Next",
                                       style: .default,
                                       handler: { _ in
                                         
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as? ViewController {
-                vc.quiz = quiz
-                vc.modalPresentationStyle = .fullScreen
-                vc.modalTransitionStyle = .flipHorizontal
-                self.present(vc, animated: true, completion: nil)
-            }
-                                        
-        }))
+                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                        if quiz.questionIndex == quiz.questions.count,
+                                           let vc = storyboard.instantiateViewController(identifier: "ResultsVC") as? ResultsVC {
+                                            
+                                            vc.quiz = quiz
+                                            vc.modalPresentationStyle = .fullScreen
+                                            vc.modalTransitionStyle = .coverVertical
+                                            self.present(vc, animated: true, completion: nil)
+                                            
+                                        } else if let vc = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController {
+                                            
+                                            vc.quiz = quiz
+                                            vc.modalPresentationStyle = .fullScreen
+                                            vc.modalTransitionStyle = .flipHorizontal
+                                            self.present(vc, animated: true, completion: nil)
+                                            
+                                        }
+        })
+        
+        alert.addAction(nextAction)
         self.present(alert, animated: true, completion: nil)
         
         isProcessingAnswer = false
