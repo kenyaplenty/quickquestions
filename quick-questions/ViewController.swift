@@ -11,9 +11,11 @@ class ViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var option1Btn: UIButton!
     @IBOutlet weak var option2Btn: UIButton!
     @IBOutlet weak var option3Btn: UIButton!
+    @IBOutlet weak var option4Btn: UIButton!
     @IBOutlet weak var answerBtn: UIButton!
 
     // MARK: - Variables
@@ -27,12 +29,42 @@ class ViewController: UIViewController {
     // MARK: - View functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        _setupView()
+    }
+    
+    private func _setupView() {
+        questionLbl.font = UIFont.systemFont(ofSize: 18, weight: .heavy)
+        questionLbl.textAlignment = .center
+        questionLbl.numberOfLines = 0
         
-        QuizDatabaseHelper.getQuiz(numberOfQuestions: 3, category: .entertainmentFilm, difficulty: .easy) { (result) in
-            
-            if let quizResult = result {
-                self.quiz = quizResult
+        answerBtn.setTitle("Answer", for: .normal)
+        
+        guard let quiz = quiz, let question = quiz.getNextQuestion() else { return }
+        _setViewWithQuestion(with: question)
+    }
+    
+    private func _setViewWithQuestion(with question: Question) {
+        DispatchQueue.main.async {
+            if question.correctAnswer == "" || question.incorrectAnswers.count == 0 {
+                //Show error
             }
+            
+            self.questionLbl.text = question.question
+            
+            self.option1Btn.setTitle(question.correctAnswer, for: .normal)
+            
+            var counter = 2
+            for incorrectAnswer in question.incorrectAnswers {
+                if counter == 2 {
+                    self.option2Btn.setTitle(incorrectAnswer, for: .normal)
+                } else if counter == 3 {
+                    self.option3Btn.setTitle(incorrectAnswer, for: .normal)
+                } else {
+                    self.option4Btn.setTitle(incorrectAnswer, for: .normal)
+                }
+                counter += 1
+            }
+            
         }
     }
 

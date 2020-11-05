@@ -52,12 +52,13 @@ class QuizDatabaseHelper {
         
         guard let url = URL(string: endPointString) else { return completionHandler(nil) }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data, error == nil else {
                 return completionHandler(nil)
             }
             
-            return completionHandler(Quiz(from: data))
+            let quiz = Quiz(from: data)
+            return completionHandler(quiz.questions.count > 0 ? quiz : nil)
         }
         
         task.resume()

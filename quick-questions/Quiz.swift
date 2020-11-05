@@ -10,6 +10,7 @@ import Foundation
 class Quiz: NSObject {
     
     var questions = [Question]()
+    var questionIndex = 0
     
     init(from data: Data) {
         
@@ -31,6 +32,13 @@ class Quiz: NSObject {
         } catch {
             print("Hey Listen! Could not decode result: \(error.localizedDescription)")
         }
+    }
+    
+    func getNextQuestion() -> Question? {
+        let question = questionIndex < questions.count ? questions[questionIndex] : nil
+        questionIndex += 1
+        
+        return question
     }
     
 }
