@@ -11,19 +11,37 @@ class QuizDatabaseHelper {
     
     // MARK: - Data Enums
     
-    enum Category: Int {
+    enum Category: Int, CaseIterable {
         case generalKnowledge = 9
         case entertainmentFilm = 11
         case entertainmentTelevision = 14
         case scienceAndNature = 17
         case science_computers = 18
+        
+        func toString() -> String {
+            switch self {
+            case .generalKnowledge:
+                return "General Knowledge"
+            case .entertainmentFilm:
+                return "Movies"
+            case .entertainmentTelevision:
+                return "TV"
+                
+            case .scienceAndNature:
+                return "Science & Nature"
+                
+            case .science_computers:
+                return "Tech"
+            }
+        }
     }
     
     enum Difficulty: String {
+        case random = "Random"
+        case easy = "Easy"
+        case medium = "Medium"
+        case hard = "Hard"
         case unknown
-        case easy
-        case medium
-        case hard
         
         static func fromString(_ string: String) -> Difficulty {
             if string == Difficulty.easy.rawValue {
@@ -33,7 +51,7 @@ class QuizDatabaseHelper {
             } else if string == Difficulty.hard.rawValue {
                 return .hard
             } else {
-                return .unknown
+                return .random
             }
         }
     }
@@ -48,6 +66,11 @@ class QuizDatabaseHelper {
         var endPointString = "https://opentdb.com/api.php?"
         endPointString += "amount=\(numberOfQuestions)"
         endPointString += "&category=\(category.rawValue)"
+        
+        if difficulty != .random {
+            endPointString += "&difficulty=\(difficulty.rawValue.lowercased())"
+        }
+        
         endPointString += "&type=multiple"
         
         guard let url = URL(string: endPointString) else { return completionHandler(nil) }

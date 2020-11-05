@@ -119,7 +119,12 @@ class ViewController: UIViewController {
     func answerTap() {
         isProcessingAnswer = true
         
-        guard let quiz = self.quiz, let question = quiz.currentQuestion else { return }
+        guard selectedOption > 0,
+              let quiz = self.quiz,
+              let question = quiz.currentQuestion else {
+            isProcessingAnswer = false
+            return
+        }
         
         self.isCorrectAnswer = question.correctAnswer == question.allAnswers[selectedOption - 1]
         quiz.correctAnswersCount += isCorrectAnswer ? 1 : 0
