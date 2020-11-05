@@ -91,6 +91,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uO4-F4-0nI">
                                 <rect key="frame" x="184" y="573" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="option4Tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GSe-Mb-zti"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yE-rJ-fsi">
                                 <rect key="frame" x="20" y="653" width="374" height="30"/>

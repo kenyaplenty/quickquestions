@@ -120,7 +120,9 @@ class ViewController: UIViewController {
         isProcessingAnswer = true
         
         guard let quiz = self.quiz, let question = quiz.currentQuestion else { return }
+        
         self.isCorrectAnswer = question.correctAnswer == question.allAnswers[selectedOption - 1]
+        quiz.correctAnswersCount += isCorrectAnswer ? 1 : 0
         
         let alert = UIAlertController(title: isCorrectAnswer ? "Correct!" : "Wrong :(",
                                       message: nil,
@@ -129,12 +131,14 @@ class ViewController: UIViewController {
                                         ? "Results" : "Next",
                                       style: .default,
                                       handler: { _ in
+                                        
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as? ViewController {
                 vc.quiz = quiz
                 vc.modalPresentationStyle = .fullScreen
                 vc.modalTransitionStyle = .flipHorizontal
                 self.present(vc, animated: true, completion: nil)
             }
+                                        
         }))
         self.present(alert, animated: true, completion: nil)
         
