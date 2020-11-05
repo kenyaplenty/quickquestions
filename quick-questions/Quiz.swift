@@ -11,6 +11,7 @@ class Quiz: NSObject {
     
     var questions = [Question]()
     var questionIndex = 0
+    var currentQuestion: Question?
     
     init(from data: Data) {
         
@@ -36,7 +37,9 @@ class Quiz: NSObject {
     
     func getNextQuestion() -> Question? {
         let question = questionIndex < questions.count ? questions[questionIndex] : nil
+        
         questionIndex += 1
+        currentQuestion = question
         
         return question
     }
@@ -48,6 +51,7 @@ class Question: NSObject {
     var question: String = ""
     var difficulty: QuizDatabaseHelper.Difficulty = .unknown
     
+    var allAnswers = [String]()
     var incorrectAnswers = [String]()
     var correctAnswer: String = ""
     
@@ -57,7 +61,9 @@ class Question: NSObject {
         }
         
         if let question = jsonDict["question"] as? String {
-            self.question = question.replacingOccurrences(of: "&quot;", with: "\"")
+            var questionString = question.replacingOccurrences(of: "&quot;", with: "\"")
+            questionString = questionString.replacingOccurrences(of: "&#039;", with: "\'")
+            self.question = questionString
         }
         
         if let correctAnswer = jsonDict["correct_answer"] as? String {
@@ -67,6 +73,9 @@ class Question: NSObject {
         if let incorrectAnswers = jsonDict["incorrect_answers"] as? [String] {
             self.incorrectAnswers = incorrectAnswers
         }
+        
+        allAnswers.append(correctAnswer)
+        allAnswers += incorrectAnswers
     }
     
 }

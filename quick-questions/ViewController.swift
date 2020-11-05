@@ -99,7 +99,17 @@ class ViewController: UIViewController {
             selectedOption = selectedOption == 3 ? 0 : 3
         }
     }
-
+    
+    @IBAction func option4Tap(_ sender: Any) {
+        selectOption4()
+    }
+    
+    func selectOption4() {
+        if !isProcessingAnswer {
+            selectedOption = selectedOption == 4 ? 0 : 4
+        }
+    }
+    
     // MARK: - Answer actions
 
     @IBAction func answerBtnTap(_ sender: Any) {
@@ -108,6 +118,27 @@ class ViewController: UIViewController {
 
     func answerTap() {
         isProcessingAnswer = true
+        
+        guard let quiz = self.quiz, let question = quiz.currentQuestion else { return }
+        self.isCorrectAnswer = question.correctAnswer == question.allAnswers[selectedOption - 1]
+        
+        let alert = UIAlertController(title: isCorrectAnswer ? "Correct!" : "Wrong :(",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: quiz.questionIndex == quiz.questions.count
+                                        ? "Results" : "Next",
+                                      style: .default,
+                                      handler: { _ in
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as? ViewController {
+                vc.quiz = quiz
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .flipHorizontal
+                self.present(vc, animated: true, completion: nil)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        isProcessingAnswer = false
     }
 
     func answerIsCorrect() {
