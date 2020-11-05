@@ -21,10 +21,19 @@ class ViewController: UIViewController {
     var selectedOption = 0
     var isProcessingAnswer = false
     var isCorrectAnswer = false
+    
+    var quiz: Quiz?
 
     // MARK: - View functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        QuizDatabaseHelper.getQuiz(numberOfQuestions: 3, category: .entertainmentFilm, difficulty: .easy) { (result) in
+            
+            if let quizResult = result {
+                self.quiz = quizResult
+            }
+        }
     }
 
     // MARK: - Selection actions
