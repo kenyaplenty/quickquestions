@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13936D6E2553D541003F2433 /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13936D6D2553D541003F2433 /* ResultsVC.swift */; };
+		13A44F72255375770089FAFB /* QuizDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */; };
+		13A44F772553AB190089FAFB /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F762553AB190089FAFB /* Quiz.swift */; };
+		13A44F7C2553B8940089FAFB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A44F7B2553B8940089FAFB /* HomeVC.swift */; };
 		629F129C2C2AB8DF53EECB86 /* Pods_quick_questionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7726B57130F0D37109BB37EB /* Pods_quick_questionsTests.framework */; };
 		CC8E13CDBAF5274D145BAE50 /* Pods_quick_questions_quick_questionsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D23E3059491D5A68CC7300 /* Pods_quick_questions_quick_questionsUITests.framework */; };
 		CFCEFC28252EA3F3003ACC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCEFC27252EA3F3003ACC9A /* AppDelegate.swift */; };
@@ -40,6 +44,10 @@
 /* Begin PBXFileReference section */
 		085B50BB407A670B2A39D370 /* Pods-quick-questions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick-questions.debug.xcconfig"; path = "Target Support Files/Pods-quick-questions/Pods-quick-questions.debug.xcconfig"; sourceTree = "<group>"; };
 		0AB3A3A90386CD2AF0F8A5E7 /* Pods_quick_questions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quick_questions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13936D6D2553D541003F2433 /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
+		13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDatabaseHelper.swift; sourceTree = "<group>"; };
+		13A44F762553AB190089FAFB /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		13A44F7B2553B8940089FAFB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		2138DBF5F0867E15C1DF2554 /* Pods-quick-questionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick-questionsTests.debug.xcconfig"; path = "Target Support Files/Pods-quick-questionsTests/Pods-quick-questionsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26930B7F7D21AAD752CA011F /* Pods-quick-questionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick-questionsTests.release.xcconfig"; path = "Target Support Files/Pods-quick-questionsTests/Pods-quick-questionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		28A6C7E7F9D1073F534BEF31 /* Pods-quick-questions-quick-questionsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick-questions-quick-questionsUITests.debug.xcconfig"; path = "Target Support Files/Pods-quick-questions-quick-questionsUITests/Pods-quick-questions-quick-questionsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +141,10 @@
 				CFCEFC30252EA400003ACC9A /* Assets.xcassets */,
 				CFCEFC32252EA400003ACC9A /* LaunchScreen.storyboard */,
 				CFCEFC35252EA400003ACC9A /* Info.plist */,
+				13A44F71255375760089FAFB /* QuizDatabaseHelper.swift */,
+				13A44F762553AB190089FAFB /* Quiz.swift */,
+				13A44F7B2553B8940089FAFB /* HomeVC.swift */,
+				13936D6D2553D541003F2433 /* ResultsVC.swift */,
 			);
 			path = "quick-questions";
 			sourceTree = "<group>";
@@ -388,7 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13936D6E2553D541003F2433 /* ResultsVC.swift in Sources */,
 				CFCEFC2C252EA3F3003ACC9A /* ViewController.swift in Sources */,
+				13A44F772553AB190089FAFB /* Quiz.swift in Sources */,
+				13A44F72255375770089FAFB /* QuizDatabaseHelper.swift in Sources */,
+				13A44F7C2553B8940089FAFB /* HomeVC.swift in Sources */,
 				CFCEFC28252EA3F3003ACC9A /* AppDelegate.swift in Sources */,
 				CFCEFC2A252EA3F3003ACC9A /* SceneDelegate.swift in Sources */,
 			);
