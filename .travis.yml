@@ -16,3 +16,12 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - gem install jazzy
+    - make documentation
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $jazzy  
+  local-dir: docs
+  on:
+    branch: master
