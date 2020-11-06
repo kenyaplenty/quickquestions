@@ -32,3 +32,6 @@ To add your own quiz database, all you need to do is to make sure the data will 
 
 ### Release notes / Roadmap
 Coming soon.
+
+## License
+Distributed under the MIT License. See [LICENSE](https://github.com/karimerobles/quickquestions/blob/master/LICENSE) for details.
