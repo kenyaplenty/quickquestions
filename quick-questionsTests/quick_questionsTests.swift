@@ -11,6 +11,24 @@ import XCTest
 // swiftlint:disable all
 class quick_questionsTests: XCTestCase {
     
+    //MARK: - HomeVC
+    
+    func testCategorySelection() {
+        let vc = HomeVC()
+        
+        //check that default is correct
+        XCTAssertEqual(vc.numberOfQuestions, 1)
+        
+        //Start and stop typing in the textfield
+        vc.numberTF.becomeFirstResponder()
+        vc.numberTF.text = "3"
+        vc.view.endEditing(true)
+        
+        XCTAssertEqual(vc.numberOfQuestions, 3)
+    }
+    
+    //MARK: - View Controller
+    
     /*
      * Test to see if we're able to tap on an option from view initialization
      */
@@ -60,25 +78,6 @@ class quick_questionsTests: XCTestCase {
     }
     
     /*
-     * Test if not able to make another selection while processing an answer
-     */
-    func testSelectionDuringAnswerProcessing() {
-        let vc = ViewController()
-        
-        XCTAssertEqual(vc.selectedOption, 0)
-        XCTAssertFalse(vc.isProcessingAnswer)
-        
-        vc.selectOption1()
-        XCTAssertEqual(vc.selectedOption, 1)
-        
-        vc.answerTap()
-        XCTAssertTrue(vc.isProcessingAnswer)
-        
-        vc.selectOption2()
-        XCTAssertEqual(vc.selectedOption, 1)
-    }
-    
-    /*
      * Test if correct answer resets selection and marks the correct boolean to true
      */
     func testCorrectAnswer() {
@@ -89,9 +88,6 @@ class quick_questionsTests: XCTestCase {
         
         vc.selectOption1()
         XCTAssertEqual(vc.selectedOption, 1)
-        
-        vc.answerTap()
-        XCTAssertTrue(vc.isProcessingAnswer)
         
         vc.answerIsCorrect()
         XCTAssertFalse(vc.isProcessingAnswer)
@@ -110,9 +106,6 @@ class quick_questionsTests: XCTestCase {
         
         vc.selectOption1()
         XCTAssertEqual(vc.selectedOption, 1)
-        
-        vc.answerTap()
-        XCTAssertTrue(vc.isProcessingAnswer)
         
         vc.answerIsWrong()
         XCTAssertFalse(vc.isProcessingAnswer)

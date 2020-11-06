@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     
     // MARK: - Variables
     
-    private var _numberOfQuestions = 1
+    public var numberOfQuestions = 1
     private var _category: QuizDatabaseHelper.Category = .generalKnowledge
     private var _difficulty: QuizDatabaseHelper.Difficulty = .easy
     
@@ -56,7 +56,7 @@ class HomeVC: UIViewController {
         numberLbl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         
         numberTF.delegate = self
-        numberTF.text = "\(_numberOfQuestions)"
+        numberTF.text = "\(numberOfQuestions)"
         numberTF.textAlignment = .center
         numberTF.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         numberTF.borderStyle = .none
@@ -119,9 +119,9 @@ class HomeVC: UIViewController {
     @IBAction func continueBtnTap(_ sender: Any) {
         self.view.endEditing(true)
         
-        if _numberOfQuestions == 0 { return }
+        if numberOfQuestions == 0 { return }
         
-        QuizDatabaseHelper.getQuiz(numberOfQuestions: _numberOfQuestions,
+        QuizDatabaseHelper.getQuiz(numberOfQuestions: numberOfQuestions,
                                    category: _category,
                                    difficulty: _difficulty) { (quizResult) in
             DispatchQueue.main.async {
@@ -164,9 +164,9 @@ extension HomeVC: UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
             
             textField.text = "0"
-            _numberOfQuestions = 0
+            numberOfQuestions = 0
         } else if let numberOfQuestions = Int(text) {
-            _numberOfQuestions = numberOfQuestions
+            self.numberOfQuestions = numberOfQuestions
         }
     }
 }
