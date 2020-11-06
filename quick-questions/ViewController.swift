@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             if question.correctAnswer == "" || question.incorrectAnswers.count == 0 {
                 //Show error
+                print("error")
             }
             
             self.questionLbl.text = question.question
