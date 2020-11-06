@@ -11,22 +11,6 @@ import XCTest
 // swiftlint:disable all
 class quick_questionsTests: XCTestCase {
     
-    //MARK: - HomeVC
-    
-    func testCategorySelection() {
-        let vc = HomeVC()
-        
-        //check that default is correct
-        XCTAssertEqual(vc.numberOfQuestions, 1)
-        
-        //Start and stop typing in the textfield
-        vc.numberTF.becomeFirstResponder()
-        vc.numberTF.text = "3"
-        vc.view.endEditing(true)
-        
-        XCTAssertEqual(vc.numberOfQuestions, 3)
-    }
-    
     //MARK: - View Controller
     
     /*
