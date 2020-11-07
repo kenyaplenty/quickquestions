@@ -20,6 +20,9 @@ Quick questions uses an open database to gather an almost endless amount of ques
 3. Press "Run" to build and run the app on a simulator or physcial device
 
 ## Developer Documentation
+
+Our docs are hosted at https://karimerobles.github.io/quickquestions/
+
 ### Automation
 - Travis for automated testing. Travis runs the quick questions Unit and UI tests from the Xcode project
 - Codecov for code coverage
