@@ -31,7 +31,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         _setupView()
     }
-    
+    /// set up view
+    ///
     private func _setupView() {
         questionLbl.font = UIFont.systemFont(ofSize: 18, weight: .heavy)
         questionLbl.textAlignment = .center
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             if question.correctAnswer == "" || question.incorrectAnswers.count == 0 {
                 //Show error
+                print("error")
             }
             
             self.questionLbl.text = question.question
