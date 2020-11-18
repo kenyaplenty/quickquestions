@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         questionLbl.textAlignment = .center
         questionLbl.numberOfLines = 0
         
-        answerBtn.setTitle("Answer", for: .normal)
+        answerBtn.setTitle("Check Answer", for: .normal)
         
         guard let quiz = quiz, let question = quiz.getNextQuestion() else { return }
         _setViewWithQuestion(with: question)
@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         self.isCorrectAnswer = question.correctAnswer == question.allAnswers[selectedOption - 1]
         quiz.correctAnswersCount += isCorrectAnswer ? 1 : 0
         
-        let alert = UIAlertController(title: isCorrectAnswer ? "Correct!" : "Wrong :(",
+        let alert = UIAlertController(title: isCorrectAnswer ? "Correct :)" : "Wrong :(",
                                       message: nil,
                                       preferredStyle: .alert)
         let nextAction = UIAlertAction(title: quiz.questionIndex == quiz.questions.count

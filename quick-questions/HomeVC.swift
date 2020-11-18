@@ -65,7 +65,7 @@ class HomeVC: UIViewController {
     }
     
     private func _setCategoryOption() {
-        categoryLbl.text = "Categroy"
+        categoryLbl.text = "Category"
         categoryLbl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         
         var menuActions = [UIAction]()
@@ -157,7 +157,7 @@ extension HomeVC: UITextFieldDelegate {
         guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
         if text == "" || text == "0" {
-            let alert = UIAlertController(title: "Incorrect number of questions",
+            let alert = UIAlertController(title: "Invalid number of questions",
                                           message: "You need at least one question to start the quiz.",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
