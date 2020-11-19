@@ -15,9 +15,7 @@ Collaboration with flp2111 on an iOS Quiz-style game app using a customizable op
 Quick questions uses an open database to gather an almost endless amount of questions to always have new questions ranging from different themes and difficulty. Quiz database: https://opentdb.com/api_config.php. View developer documentation for adding new quiz databases.
 
 ## Usage
-1. Have Xcode 12.0+.
-2. Download and open the project
-3. Press "Run" to build and run the app on a simulator or physcial device
+To use QuickQuestions, [follow this demo](https://github.com/karimerobles/quickquestions/blob/master/demo/demo.md)
 
 ## Developer Documentation
 
