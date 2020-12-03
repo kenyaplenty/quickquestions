@@ -37,7 +37,7 @@ class HomeVC: UIViewController {
 
     private func _setupView() {
         titleLbl.text = "Quick Questions"
-        titleLbl.font = UIFont.systemFont(ofSize: 30, weight: .black)
+        titleLbl.font = UIFont.systemFont(ofSize: 34, weight: .black)
         titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 0
         
@@ -49,6 +49,7 @@ class HomeVC: UIViewController {
         
         continueBtn.setTitle("Start Quiz!", for: .normal)
         continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        continueBtn.layer.cornerRadius = 10
     }
     
     private func _setNumberOfQuestions() {

@@ -38,7 +38,13 @@ class ViewController: UIViewController {
         questionLbl.textAlignment = .center
         questionLbl.numberOfLines = 0
         
+        option1Btn.layer.cornerRadius = 10
+        option2Btn.layer.cornerRadius = 10
+        option3Btn.layer.cornerRadius = 10
+        option4Btn.layer.cornerRadius = 10
+        
         answerBtn.setTitle("Check Answer", for: .normal)
+        answerBtn.layer.cornerRadius = 10
         
         guard let quiz = quiz, let question = quiz.getNextQuestion() else { return }
         _setViewWithQuestion(with: question)

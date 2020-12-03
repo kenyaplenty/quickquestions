@@ -33,6 +33,7 @@ class ResultsVC: UIViewController {
         
         continueBtn.setTitle("Home", for: .normal)
         continueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        continueBtn.layer.cornerRadius = 10
         
         guard let quiz = quiz else { return }
         
